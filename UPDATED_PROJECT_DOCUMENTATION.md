@@ -13,6 +13,7 @@
 10. [Deployment Configuration](#deployment-configuration)
 11. [Performance Criteria Implementation Status](#performance-criteria-implementation-status)
 12. [Issue Resolution Summary](#issue-resolution-summary)
+13. [Final Deployment Steps](#final-deployment-steps)
 
 ## Project Overview
 
@@ -115,7 +116,7 @@ Controllers were refactored to be lightweight and follow the Single Responsibili
 ### Service Layer Implementation
 Created a dedicated service class for file operations to eliminate code duplication:
 
-```php
+``php
 class FileUploadService
 {
     public function uploadImage(UploadedFile $file, string $folder = 'images'): string
@@ -409,3 +410,28 @@ Throughout the development process, several critical issues were identified and 
 - Restarted development server to clear hanging processes
 
 Each issue was systematically identified, diagnosed, and resolved with appropriate code changes to ensure the podcast finder application works correctly with all CRUD operations, proper authentication, authorization, and file handling.
+
+## Final Deployment Steps
+
+To deploy the final version of the Podcast Finder project to a GitHub repository, execute the following commands:
+
+```bash
+# Check the current status of the repository
+git status
+
+# Add all files to git tracking
+git add .
+
+# Commit all changes with a descriptive message
+git commit -m "Final implementation of Podcast Finder project with complete CRUD operations, authentication, authorization, Cloudinary integration, and comprehensive documentation"
+
+# Add the remote repository (if not already set up)
+git remote add origin https://github.com/emmy-na/Podcast-Finder.git
+
+# Push all code to the master branch on GitHub
+git push -u origin master
+```
+
+After executing these commands, the complete project will be deployed to the GitHub repository and can be accessed at: https://github.com/emmy-na/Podcast-Finder.git
+
+The repository will contain all application code, database migrations, API controllers, middleware, unit tests, Postman collections, and documentation files.
