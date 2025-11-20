@@ -11,16 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-       Schema::create('users', function (Blueprint $table) {
+       Schema::create('episodes', function (Blueprint $table) {
     $table->id();
-    $table->string('name');
-    $table->string('email')->unique();
-    $table->timestamp('email_verified_at')->nullable();
-    $table->string('password');
-    $table->enum('role', ['Utilisateur', 'Animateur', 'Administrateur'])->default('Utilisateur');
-    $table->rememberToken();
+    $table->string('title');
+    $table->text('description')->nullable();
+    $table->string('audio_file')->nullable();
+    $table->foreignId('podcast_id')->constrained()->onDelete('cascade');
     $table->timestamps();
-        });
+});
+
     }
 
     /**
@@ -28,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('episodes');
     }
 };

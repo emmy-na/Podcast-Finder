@@ -63,5 +63,11 @@ class Kernel extends HttpKernel
         'signed' => \App\Http\Middleware\ValidateSignature::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
+        'role' => \App\Http\Middleware\RoleMiddleware::class,
+        'can_update_user' => \App\Http\Middleware\CanUpdateUser::class,
+        'can_delete_user' => \App\Http\Middleware\CanDeleteUser::class,
+        'can_manage_episode' => \App\Http\Middleware\CanManageEpisode::class,
+        'can_manage_podcast' => \App\Http\Middleware\CanManagePodcast::class,
     ];
+
 }

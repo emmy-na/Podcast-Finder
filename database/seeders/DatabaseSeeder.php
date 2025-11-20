@@ -18,5 +18,19 @@ class DatabaseSeeder extends Seeder
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
         // ]);
+
+
+         User::factory(3)->create()->each(function($user){
+        Podcast::factory(2)->create(['user_id'=>$user->id])->each(function($podcast){
+            Episode::factory(3)->create(['podcast_id'=>$podcast->id]);
+        });
+    });
+
+    User::factory()->create([
+        'name' => 'Admin',
+        'email' => 'admin@test.com',
+        'password' => bcrypt('admin123'),
+        'role' => 'Administrateur',
+    ]);
     }
 }
