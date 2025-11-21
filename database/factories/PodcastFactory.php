@@ -20,7 +20,7 @@ class PodcastFactory extends Factory
         return [
             'title' => fake()->sentence(3),
             'description' => fake()->paragraph(),
-            'image' => null,
+            'image' => '/storage/images/podcast_' . fake()->numberBetween(1, 10) . '.jpg',
             'user_id' => User::factory(),
         ];
     }
